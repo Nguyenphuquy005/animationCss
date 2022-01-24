@@ -1,0 +1,1606 @@
+= detail-container
+	width: 80%
+	max-width: 2200px
+	margin: 0 auto
+
+= block-center
+	width: 100%
+	text-align: center
+	margin: 0 auto
+
+= bg-color($color,$width, $height)
+	background: $color
+	width: $width
+	height:  $height
+
+= btn($padding,$width)
+	padding: $padding
+	width: $width
+
+= positionCenter
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%,-50%)
+
+= positionTop($position,$top,$leftOrRight,$lr)
+	@if $leftOrRight == left
+		position: $position
+		top: $top
+		left: $lr
+	@else
+		position: $position
+		top: $top
+		right: $lr
+
+= positionBottom($position,$bottom,$leftOrRight,$lr)
+	@if $leftOrRight == left
+		position: $position
+		bottom: $bottom
+		left: $lr
+	@else
+		position: $position
+		bottom: $bottom
+		right: $lr
+
+//a
+= a($acolor, $ahover)
+	color: $acolor
+	&:hover
+		color: $ahover	
+
+//div 位置
+= bc($wd, $maxwd:auto)
+	width: $wd
+	margin: 0 auto
+	max-width: $maxwd
+
+//figure 一般版
+= figure($width)
+	width: $width
+	img
+		width: 100%
+		height: 100%
+		object-fit: cover
+
+//figure 一般版
+= flexBox($just,$align,$wrap)
+	display: flex
+	justify-content: $just
+	align-items: $align
+	flex-wrap: $wrap
+
+
+//table
+= table($wd, $thwd:auto, $tdwd:auto)
+	display: table
+	width: $wd
+	margin: 0 auto
+	.tr
+		display: table-row
+	
+	.th
+		display: table-cell
+		width: $thwd
+	
+	.td
+		display: table-cell
+		width: $tdwd
+
+= td($wd, $maxwd)
+	display: table-cell
+	width: $wd
+	max-width: $maxwd
+
+
+= ultb($wd, $tdwd:auto,$valign:auto)
+	display: table
+	width: $wd
+	margin: 0 auto
+	li
+		display: table-cell
+		width: $tdwd
+		vertical-align: $valign
+
+//button
+= btsty($bgcolor, $color, $size)
+	background: $bgcolor
+	color: $color
+	display: block
+	border: $bgcolor 2px solid
+	font-size: $size
+	cursor: pointer
+	&:hover
+		background: none
+		box-shadow: $bgcolor 0 0 20px
+
+//shadow
+= box-shadow($shadow...)
+	-webkit-box-shadow: $shadow
+	-moz-box-shadow: $shadow
+	box-shadow: $shadow 
+
+= text-shadow($shadow...)
+	-webkit-text-shadow: $shadow
+	-moz-text-shadow: $shadow
+	text-shadow: $shadow 
+
+//radius
+= radius($radius)
+	-webkit-border-radius: $radius
+	-moz-border-radius: $radius
+	border-radius: $radius
+
+
+@keyframes kvAnimate
+
+	0%
+		background-position: 0%
+
+	100%
+		background-position: -400%
+
+body, html
+	position: relative
+	width: 100%
+
+*
+	padding: 0
+	margin: 0
+
+a
+	text-decoration: none
+
+
+.main
+	box-sizing: border-box
+	font-family: 'Montserrat', sans-serif
+	box-sizing: border-box
+	width: 100%
+	position: relative
+	overflow: hidden
+	font-size: 1em
+	background: #161c21
+	z-index: 1
+	@media (max-width: 960px)
+		font-size: 0.8em
+	@media (max-width: 350px)
+		font-size: 0.7em
+	figure
+		line-height: 0
+	.navBar
+		width: 100%
+		position: relative
+		z-index: 2
+		.navBarBlock
+			position: relative
+			width: 100%
+			+flexBox(space-around,center,nowrap)
+			height: 63px
+			color: rgba(255, 255, 255, 0.6)
+			z-index: 20
+			&__logo
+				display: block
+				cursor: pointer
+			&__btn
+				cursor: pointer
+				font-family: Montserrat
+				font-weight: 500
+				padding:  10px 20px
+
+				&--active
+					border-bottom: 3px solid #9C34B7
+					color: #fff
+			&__alink
+				position: relative
+				display: block
+				text-decoration: none
+				color: #fff
+				padding: 3px
+				background: linear-gradient(to right ,#901ebc,#4511e9)
+				border-radius: 50px
+				&-btn
+					background: #161c21
+					padding: 6px 15px
+					border-radius: 50px
+			.hamburgerBar
+				width: 100%
+				position: relative
+				transition: .5s
+				&__box
+					cursor: pointer
+					&-transition
+						transition: .5s
+					&--active
+						.bar1
+							transform: rotate(-43deg) translate(-2px, 9px)
+						.bar2
+							opacity: 0
+						.bar3
+							transform: rotate(45deg) translate(-4px, -10px)
+				.bar
+					width: 36px
+					height: 3px
+					background: #ffffff
+					margin: 6px 0
+					border-radius: 2px
+			.menu
+				position: absolute
+				left: 0
+				top: 100%
+				width: 100%
+				background: rgb(145, 145, 145)
+				color: #fff
+				font-size: 1em
+				z-index: 3
+				overflow: hidden
+				max-height: 0
+				transition: 0.5s
+				font-size: 1.5em
+				&--active
+					max-height: 600px
+					transition: 1s
+				&__box
+					padding: 5%
+					+flexBox(center,center,wrap)
+					&-link
+						width: calc( 100%/3 -60px)
+						color: #ffffff
+						margin: 20px 
+						text-align: center
+
+	// .title
+	// 	text-align: center
+	// 	color: #fff
+	// 	margin: 100px auto 50px
+	// 	h1
+	// 		margin-bottom: 5px
+	// 		font-size: 3em
+	// 		font-weight: 500
+	// 		line-height: 68px
+	// 		letter-spacing: 0em
+	// 		text-align: center
+	// 	p
+	// 		font-size: 24px
+	// 		font-weight: 500
+	// 		line-height: 29px
+	// 		letter-spacing: 0em
+	// 		text-align: center
+
+	// 	&__alink
+	// 		position: relative
+	// 		display: inline-block
+	// 		text-decoration: none
+	// 		color: #fff
+	// 		padding: 3px
+	// 		background: linear-gradient(to right ,#901ebc,#4511e9)
+	// 		border-radius: 18px
+	// 		margin: 30px 0
+	// 		&-btn
+	// 			background: #161c21
+	// 			padding: 15px 25px
+	// 			border-radius: 18px
+	// 			border: 0
+
+	// .videoBox
+	// 	position: relative
+	// 	width: 100%
+	// 	.title
+	// 		width: 100%
+	// 		position: absolute
+	// 		top: 50%
+	// 		left: 50%
+	// 		transform: translate(-50%,-50%)
+	// 		text-align: center
+	// 		color: #fff
+	// 		// margin: 100px auto 50px
+	// 		h1
+	// 			margin-bottom: 5px
+	// 			font-size: 3em
+	// 			font-weight: 500
+	// 			// line-height: 68px
+	// 			letter-spacing: 0em
+	// 			text-align: center
+	// 		p
+	// 			font-size: 1.5em
+	// 			font-weight: 500
+	// 			// line-height: 29px
+	// 			letter-spacing: 0em
+	// 			text-align: center
+
+	// 		&__alink
+	// 			position: relative
+	// 			display: inline-block
+	// 			text-decoration: none
+	// 			color: #fff
+	// 			padding: 3px
+	// 			background: linear-gradient(to right ,#901ebc,#4511e9)
+	// 			border-radius: 18px
+	// 			margin: 30px 0
+	// 			&-btn
+	// 				background: #161c21
+	// 				padding: 15px 25px
+	// 				border-radius: 18px
+	// 				border: 0
+	// 	video
+	// 		width: 100%
+	// 		height: auto
+	#cooler-video
+		font-family: Montserrat
+		&.video
+			overflow: hidden
+			position: relative
+			
+		.video__container
+			position: relative
+			padding-bottom: 56.25%
+			height: 0
+			overflow: hidden
+			width: 100%
+			margin: 0 auto
+			iframe,object,embed
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+			video
+				width: 100%	
+		.video__overlay
+			width: 100%
+			height: 100%
+			position: absolute
+			top: 0
+			left: 0
+		.video__btn
+			position: absolute
+			left: 50%
+			top: 40%
+			transform: translate(-50%, -50%)
+			width: 100%
+			text-align: center
+			h1
+				color: #ffffff
+				font-size: 3vw
+				letter-spacing: 1px
+				margin-bottom: 10px
+				font-weight: 900
+				filter: drop-shadow(0 0 5px #414141)
+			p
+				font-size: 1.5vw
+				color: #fff
+				font-weight: 900
+				margin-bottom: 20px
+				filter: drop-shadow(0 0 5px #414141)
+			.titleLink
+				position: relative
+				display: inline-block
+				text-decoration: none
+				color: #fff
+				padding: 3px
+				background: linear-gradient(to right ,#901ebc,#4511e9)
+				border-radius: 18px
+				margin: 10px 0 20px
+				&__btn
+					background: #161c21
+					padding: 15px 25px
+					border-radius: 18px
+					border: 0
+		.icon
+			width: 6em
+			height: 6em
+		.creater__anibox-btn
+			position: absolute
+			z-index: 1
+			top: 50%
+			left: 50%
+			color: #fff
+			font-size: 40px
+			-webkit-transform: translate(-50%, -50%)
+			transform: translate(-50%, -50%)
+			cursor: pointer
+			padding: 5px 40px
+		.btn
+			background: transparent
+			border: none
+			color: rgb(255, 255, 255)
+			cursor: pointer
+			font-size: 2em
+			position: relative
+			outline: none
+			filter: drop-shadow(0 0 5px #414141)
+			&--play
+				fill: rgb(255, 255, 255)
+				height: 2em
+				width: 2em
+				display: flex
+				align-items: center
+				justify-content: center
+				margin: auto
+				&::before,&::after
+					border-radius: 100%
+					content: ""
+					height: 100%
+					left: 0
+					position: absolute
+					top: 0
+					width: 100%
+				&::before
+					background-color: rgba(255, 255, 255, 0.1)
+					box-shadow: 0 0 0 0.3rem rgb(255, 255, 255)
+					transition: background-color .3s ease, fill .3s ease, -webkit-transform .3s ease, -webkit-box-shadow .3s ease
+				&:hover
+					fill: rgb(182, 26, 243)
+					&::before
+						background-color: rgba(0, 0, 0, 0.1)
+						box-shadow: 0 0 0 0.2rem rgb(183, 48, 224)
+						transform: scale(1.2)
+					&::after
+						display: none
+				&::after
+					box-shadow: inset 0 0 0 1em rgba(255, 255, 255, 0)
+					opacity: 0
+					pointer-events: none
+	@media screen and ( max-width: 960px )
+		#cooler-video
+			&.video
+				overflow: hidden
+				position: relative
+				
+			.video__container
+				position: relative
+				padding-bottom: 100vh
+				height: 0
+				overflow: hidden
+				width: 100%
+				margin: 0 auto
+				iframe,object,embed
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+				video
+					width: auto
+					height: 100vh
+					transform: translateX(-30%)
+			.video__overlay
+				width: 100%
+				height: 100%
+				position: absolute
+				top: 0
+				left: 0
+			.video__btn
+				position: absolute
+				left: 50%
+				top: 40%
+				transform: translate(-50%, -50%)
+				width: 100%
+				text-align: center
+				h1
+					font-size: 3em
+				p
+					font-size: 1.5em
+			.icon
+				width: 6em
+				height: 6em
+			.creater__anibox-btn
+				position: absolute
+				z-index: 1
+				top: 50%
+				left: 50%
+				color: #fff
+				font-size: 40px
+				-webkit-transform: translate(-50%, -50%)
+				transform: translate(-50%, -50%)
+				cursor: pointer
+				padding: 5px 40px
+			.btn
+				background: transparent
+				border: none
+				cursor: pointer
+				font-size: 2em
+				position: relative
+				outline: none
+				&--play
+					height: 2em
+					width: 2em
+					display: flex
+					align-items: center
+					justify-content: center
+					margin: auto
+					&::before,&::after
+						border-radius: 100%
+						content: ""
+						height: 100%
+						left: 0
+						position: absolute
+						top: 0
+						width: 100%
+					&::before
+						background-color: rgba(255, 255, 255, 0.1)
+						transition: background-color .3s ease, fill .3s ease, -webkit-transform .3s ease, -webkit-box-shadow .3s ease
+					&:hover
+						fill: rgb(255, 255, 255)
+						&::before
+							background-color: rgba(0, 0, 0, 0.1)
+							box-shadow: 0 0 0 0.2rem rgb(255, 255, 255)
+							transform: scale(1.2)
+						&::after
+							display: none
+					&::after
+						box-shadow: inset 0 0 0 1em rgba(255, 255, 255, 0)
+						opacity: 0
+						pointer-events: none
+
+
+	.threeIcon
+		width: 100%
+		color: #fff
+		padding-top: 5%
+		&__flex
+			+flexBox(center,center,nowrap)
+			.iconBox
+				width: 20%
+				text-align: center
+				margin: 30px
+				&__figure
+					margin: 0 auto 30px
+					+figure(200px)
+				h3
+					margin-bottom: 20px
+	@media screen and ( max-width: 960px )
+		.threeIcon
+			width: 100%
+			color: #fff
+			padding-top: 5%
+			&__flex
+				+flexBox(center,center,wrap)
+				.iconBox
+					width: 100%
+					text-align: center
+					margin: 30px
+					&__figure
+						margin: 0 auto 30px
+						+figure(200px)
+					h3
+						margin-bottom: 20px
+
+	.chairGif
+		width: 100%
+		margin: 5% 0
+		position: relative
+		&__figure
+			line-height: 0
+			position: relative
+			+figure(100%)
+			z-index: 1
+			&-absolute
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				z-index: 5
+		.gifTextBox
+			position: absolute
+			top: 2%
+			right: 10%
+			z-index: 2
+			h2
+				font-size: 4em
+				margin-bottom: 20px
+				background: linear-gradient(to right ,#901ebc,#4511e9)
+				background-clip: text
+				-webkit-background-clip: text
+				color: transparent
+			p
+				font-size: 1em
+				max-width: 400px
+				color: rgba(255, 255, 255, 0.8)
+	@media screen and ( max-width: 960px )
+		.chairGif
+			width: 100%
+			// padding-top: 5%
+			margin-top: 5%
+			position: relative
+			&__figure
+				position: relative
+				+figure(100%)
+			.gifTextBox
+				padding: 0 5%
+				text-align: center
+				position: static
+				margin: 0 auto
+				&__block
+					display: inline-block
+				h2
+					font-size: 2em
+					margin-bottom: 10px
+				p
+					margin: 0 auto 10px
+					width: 100%
+
+	.gasp-scroll
+		position: relative 
+		.animateVideoNew
+			font-family: Montserrat
+			position: absolute
+			z-index: 30
+			color: #fff
+			font-size: 1em
+			top: 50%
+			left: 30%
+			transform: translate(-50%, -50%)
+			width: 40%
+			&__position
+				width: 400px
+				padding: 5%
+				background: linear-gradient(to right ,#9C34B7,#34329A)
+				h2
+					font-size: 2em
+					margin-bottom: 20px
+				p
+					font-size: 1.5em
+			&__text
+				font-weight: normal
+				font-size: 0.4em
+			@media screen and ( min-width: 2000px )
+				.animateVideoNew
+					font-size: 4em
+					&__text
+						font-size: 0.8em
+			@media screen and ( max-width: 1300px )
+				.animateVideoNew
+					font-size: 2em
+					&__text
+						font-size: 0.8em
+		@media screen and ( max-width: 768px )
+			.animateVideoNew
+				font-family: Montserrat
+				position: absolute
+				z-index: 30
+				color: #fff
+				font-size: 1em
+				top: 50%
+				left: 50%
+				transform: translate(-50%, 0)
+				width: 50%
+				box-sizing: border-box
+				&__position
+					width: 100%
+					padding: 5%
+					background: linear-gradient(to right ,#9C34B7,#34329A)
+					h2
+						font-size: 1.5em
+						margin-bottom: 20px
+					p
+						font-size: 0.9em
+				&__text
+					font-weight: normal
+					font-size: 0.4em
+		@media screen and ( max-width: 500px )
+			.animateVideoNew
+				font-size: 1.2em
+				&__text
+					font-size: 0.8em 
+
+	#videoBoxContainer
+		width: 100%
+		height: 100vh
+		.aegisCanvas
+			// padding-top: 8%
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+			width: 100%
+			z-index: 20
+		@media screen and ( max-width: 1500px )
+			.aegisCanvas
+				// left: -20%
+				height: 100vh
+				width: auto
+		@media screen and ( max-width: 768px )
+			.aegisCanvas
+				left: -20%
+				height: 100vh
+				width: auto
+		@media screen and ( max-width: 600px )
+			.aegisCanvas
+				// width: 100%
+		@media screen and ( max-width: 450px )
+			.aegisCanvas
+				// width: 100% 
+
+	.gasp-scroll2
+		margin-top: 10%
+		position: relative 
+		.animateVideoNew2
+			font-family: Montserrat
+			position: absolute
+			z-index: 30
+			color: #fff
+			font-size: 1em
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			width: 100%
+			&__position
+				text-align: center
+				// width: 400px
+				padding: 5%
+				// background: linear-gradient(to right ,#9C34B7,#34329A)
+				h2
+					font-size: 7vw
+					margin-bottom: 20px
+					background: linear-gradient(to right ,#9C34B7,#0300a5)
+					background-clip: text
+					-webkit-background-clip: text
+					color: transparent
+					filter: drop-shadow(0 0 5px #fff)
+				p
+					font-size: 2vw
+			&__text
+				font-weight: normal
+				font-size: 0.4em
+			@media screen and ( min-width: 2000px )
+				.animateVideoNew2
+					font-size: 4em
+					&__text
+						// font-size: 0.8em
+			@media screen and ( max-width: 1300px )
+				.animateVideoNew2
+					&__text
+						font-size: 1em
+		@media screen and ( max-width: 768px )
+			.animateVideoNew2
+				font-family: Montserrat
+				position: absolute
+				z-index: 30
+				color: #fff
+				font-size: 1em
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+				// width: 50%
+				box-sizing: border-box
+				&__position
+					width: 90%
+					padding: 0
+					margin: 0 auto
+					// background: linear-gradient(to right ,#9C34B7,#34329A)
+					h2
+						font-size: 3em
+						margin-bottom: 20px
+					p
+						font-size: 1.2em
+				&__text
+					font-weight: normal
+					font-size: 0.4em
+		@media screen and ( max-width: 500px )
+			.animateVideoNew
+				font-size: 1.2em
+				&__text
+					font-size: 0.8em 
+
+	#videoBoxContainer2
+		width: 100%
+		height: 100vh
+		box-sizing: border-box
+		.aegisCanvas2
+			// padding-top: 8%
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+			width: 100%
+			z-index: 20
+		@media screen and ( max-width: 1500px )
+			.aegisCanvas2
+				height: 100vh
+				width: auto
+		@media screen and ( max-width: 768px )
+			.aegisCanvas2
+				left: 50%
+				height: 100vh
+				width: auto
+		@media screen and ( max-width: 600px )
+			.aegisCanvas2
+				// width: 100%
+		@media screen and ( max-width: 450px )
+			.aegisCanvas2
+				// width: 100% 
+
+	.swiperTextImgBox
+		position: relative
+		width: 100%
+		padding: 50px 0
+		max-width: 900px
+		margin: 0 auto
+		text-align: center
+		color: #FFF
+		&__h2
+			font-size: 3em
+		&__p
+			color: #FFF
+			margin: 10px 0 20px
+		&__figure
+			+figure(100%)
+		&__changeText
+			max-width: 600px
+			margin: 0 auto
+			padding: 0 5%
+		.swiperCtrlStyle
+			margin: 20px 0
+			position: relative
+			.swiper-pagination-bullet
+				background: #646464
+			.swiper-pagination-bullet-active
+				background: #fff
+	@media screen and ( max-width: 960px )
+		.swiperTextImgBox
+			&__h2
+				font-size: 2em
+
+	.videoBox2
+		width: 100%
+		margin: 10% auto 0
+		color: #fff
+		text-align: center
+		&__h2
+			font-size: 3em
+		&__p
+			margin: 15px 0
+		&__small
+			font-size: 0.7em
+			color: #7a7a7a
+			width: 40%
+			text-align: center
+			margin: 0 auto 5%
+		video
+			width: 100%
+			height: auto
+	@media screen and ( max-width: 960px )
+		.videoBox2
+			width: 100%
+			margin: 5% 0 0
+			color: #fff
+			// padding: 0 5%
+			text-align: center
+			&__h2
+				font-size: 3em
+			&__p
+				margin: 15px 0
+			&__small
+				font-size: 0.7em
+				color: #7a7a7a
+				width: 90%
+			video
+				width: 100%
+				height: auto
+
+	.library
+		width: 100%
+		margin-top: 5%
+		position: relative
+		&__figure
+			position: relative
+			+figure(100%)
+			z-index: 1
+		&__logo
+			+figure(200px)
+			position: absolute
+			top: 10%
+			left: 50%
+			z-index: 10
+			transform: translateX(-50%)
+		.libraryBox
+			position: absolute
+			bottom: 10%
+			left: 10%
+			z-index: 2
+			h2
+				font-size: 3em
+				margin-bottom: 20px
+				color: #fff
+				font-weight: 100
+			p
+				font-size: 1em
+				max-width: 500px
+				color: rgba(255, 255, 255, 0.8)
+			&__link
+				text-decoration: underline
+				color: #fff
+	@media screen and ( max-width: 960px )
+		.library
+			width: 100%
+			// padding-top: 5%
+			margin-top: 5%
+			position: relative
+			&__logo
+				+figure(150px)
+				position: relative
+				top: 10%
+				left: 50%
+				z-index: 10
+				margin: 20px 0
+			&__figure
+				position: relative
+				+figure(100%)
+			.libraryBox
+				padding: 0 5%
+				text-align: center
+				position: static
+				margin: 0 auto
+				h2
+					
+					font-size: 2em
+					margin-bottom: 10px
+				p
+					margin: 0 auto 10px
+					width: 100%
+
+	.omni
+		width: 100%
+		margin-top: 5%
+		position: relative
+		&__figure
+			position: relative
+			+figure(100%)
+			z-index: 1
+		.omniBox
+			position: absolute
+			top: 20%
+			left: 10%
+			z-index: 2
+			h2
+				font-size: 4em
+				margin-bottom: 20px
+				background: linear-gradient(to right ,#901ebc,#4511e9)
+				background-clip: text
+				-webkit-background-clip: text
+				color: transparent
+			p
+				font-size: 1em
+				max-width: 400px
+				color: rgba(255, 255, 255, 0.8)
+	@media screen and ( max-width: 960px )
+		.omni
+			width: 100%
+			// padding-top: 5%
+			margin-top: 5%
+			position: relative
+			&__figure
+				position: relative
+				+figure(100%)
+			.omniBox
+				padding: 0 5%
+				text-align: center
+				position: static
+				margin: 0 auto
+				&__block
+					display: inline-block
+				h2
+					font-size: 2em
+					margin-bottom: 10px
+				p
+					margin: 0 auto 10px
+					max-width: 100%
+					width: 100%
+
+	.lightBox
+		position: relative
+		width: 100%
+		padding: 5% 0
+		margin: 0 auto
+		&__h2
+			font-size: 3em
+			text-align: center
+			background: linear-gradient(to right ,#901ebc,#4511e9)
+			background-clip: text
+			-webkit-background-clip: text
+			color: transparent
+			margin: 20px 0
+		&__p
+			width: 60%
+			text-align: center
+			margin: 0 auto 80px
+			font-size: 1em
+			color: rgba(255, 255, 255, 0.8)
+		&__link
+			position: relative
+			display: block
+			cursor: pointer
+			+figure(100%)
+			&-absolute
+				width: 100%
+				height: 100%
+				position: absolute
+				top: 0
+				left: 0
+				opacity: 0
+				background: linear-gradient(to right ,#8f1ebc33,#4311e933)
+				.color
+					width: 100%
+					text-align: center
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%,-50%)
+					color: #fff
+					opacity: 1
+					font-size: 1.2em
+			&:hover
+				.lightBox__link-absolute
+					opacity: 1
+		&__fixedArrow
+			position: relative
+			.swiper-slide-active
+				&::after
+					content: ''
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					background: linear-gradient(to right , #161c21 20%, #00000021 80%)
+
+			.swiper-slide-duplicate-prev
+				&::after
+					content: ''
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					background: linear-gradient(to left , #161c21 20%, #00000021 80%)
+			.swiper-slide
+				cursor: pointer
+			// 	&:hover
+			// 		transform: scale(1.1)
+			.button-next
+				.arrowLeft
+					cursor: pointer
+					+figure(30px)
+					position: absolute
+					z-index: 9999999
+					right: -1%
+					top: 50%
+					transform: translateY(-50%)
+			.button-prev
+				.arrowRight
+					cursor: pointer
+					+figure(30px)
+					position: absolute
+					z-index: 99999
+					left: -1%
+					top: 50%
+					transform: translateY(-50%)
+		.swiperCtrlStyle
+			.swiper-pagination-bullet-active
+				background: #fff
+	@media screen and ( max-width: 960px )
+		.lightBox
+			width: 100%
+			padding: 5% 0
+			&__h2
+				font-size: 2em
+				margin: 20px 0
+			&__p
+				width: 100%
+				margin: 0 auto 5%
+			&__fixedArrow
+				position: relative
+			
+	@media screen and ( max-width: 500px )
+		.lightBox
+			width: 100%
+			padding: 5% 0
+			&__h2
+				font-size: 2em
+				margin: 20px 0
+			&__fixedArrow
+				position: relative
+				.swiper-slide-active
+					&::after
+						content: ''
+						position: static
+						top: 0
+						left: 0
+						width: 0
+						height: 0
+				.swiper-slide-duplicate-prev
+					&::after
+						content: ''
+						position: static
+						top: 0
+						left: 0
+						width: 0
+						height: 0
+						
+
+	.work
+		width: 100%
+		margin-top: 5%
+		position: relative
+		text-align: center
+		&__figure
+			position: relative
+			+figure(100%)
+			z-index: 1
+		.workBox
+			position: absolute
+			bottom: 10%
+			left: 50%
+			transform: translateX(-50%)
+			z-index: 2
+			h2
+				font-size: 3em
+				margin-bottom: 20px
+				color: #fff
+				font-weight: 100
+			p
+				font-size: 1em
+				color: rgba(255, 255, 255, 0.8)
+			&__link
+				text-decoration: underline
+				color: #fff
+	@media screen and ( max-width: 960px )
+		.work
+			width: 100%
+			// padding-top: 5%
+			margin-top: 5%
+			position: relative
+			&__figure
+				position: relative
+				+figure(100%)
+			.workBox
+				padding: 0 5%
+				text-align: center
+				position: static
+				margin: 0 auto
+				transform: translateX(0)
+				h2
+					
+					font-size: 2em
+					margin-bottom: 10px
+				p
+					margin: 0 auto 10px
+					width: 100%
+
+	.slider
+		max-width: 1440px
+		margin: 0 auto
+		&__figure
+			width: 100%
+
+	.moveOver
+		width: 100%
+		background: linear-gradient(to bottom , #901ebc 10%, #000 80%)
+		padding: 0 5%
+		margin-top: 5%
+		box-sizing: border-box
+		.gamePad
+			padding-top: 5%
+			+flexBox(center,center,nowrap)
+			width: 100%
+			&__figure
+				+figure(40%)
+				max-width: 500px
+
+			&__text
+				padding: 20px
+				width: 30%
+				color: #fff
+				h3
+					font-weight: 100
+					margin: 0 0 20px
+					font-size: 2em
+				p
+					color: rgba(255, 255, 255, 0.582)
+					max-width: 500px
+		.masterPlus
+			color: #fff
+			width: 100%
+			margin: 100px auto 50px
+			text-align: center
+			h2
+				font-size: 3em
+			p
+				color: rgba(255, 255, 255, 0.582)
+			&__text
+				width: 60%
+				margin: 10px auto 50px
+			.masterFlexBox
+				+flexBox(center,center,nowrap)
+				color: #fff
+				&__text
+					text-align: left
+					// margin-right: 20px
+					width: 300px
+					&-link
+						display: inline-block
+						color: #fff
+						border: 3px solid #fff
+						border-radius: 10px
+						padding: 8px 15px
+						margin: 20px 0
+					figure
+						+figure(100px)
+					p
+						margin: 20px 0 
+					h3
+						margin-top: 20px
+				&__figure
+					+figure(600px)
+		.othersSay
+			width: 100%
+			color: #fff
+			padding-top: 5%
+			&__h2
+				font-size: 3em
+				text-align: center
+			&__flex
+				+flexBox(center,center,nowrap)
+				.iconBox
+					color: rgba(255, 255, 255, 0.582)
+					width: 20%
+					text-align: center
+					margin: 30px
+					&__textBox
+						width: 150px
+						margin: 0 auto
+					&__text
+						font-size: 1.5em
+						margin: 20px 0
+					&__figure
+						margin: 0 auto 30px
+						height: 150px
+						img
+							width: 100%
+							height: 100%
+							object-fit: contain
+					h3
+						margin-bottom: 20px
+		.swiperVideoBox
+			position: relative
+			width: 100%
+			padding: 50px 0
+			max-width: 900px
+			margin: 0 auto
+			.swipervideo
+				&__videoBox
+					width: 100%
+					video
+						width: 100%
+						height: auto
+			.swiperCtrlStyle
+				margin: 20px 0
+				position: relative
+				.swiper-pagination-bullet
+					background: #646464
+				.swiper-pagination-bullet-active
+					background: #fff
+	@media screen and ( max-width: 960px )
+		.moveOver
+			width: 100%
+			// background: linear-gradient(to bottom ,#901ebc,#161c21)
+			padding: 0 5%
+			margin-top: 5%
+			box-sizing: border-box
+			.gamePad
+				padding-top: 10%
+				+flexBox(center,center,wrap)
+				width: 100%
+				&__figure
+					+figure(100%)
+					max-width: 100%
+
+				&__text
+					padding: 20px
+					width: 100%
+					color: #fff
+					h3
+						font-weight: 100
+						margin: 0 0 20px
+						font-size: 2em
+					p
+						color: rgba(255, 255, 255, 0.582)
+						max-width: 100%
+			.masterPlus
+				color: #fff
+				width: 100%
+				margin: 50px auto
+				text-align: center
+				h2
+					font-size: 2em
+				&__text
+					width: 100%
+					margin: 10px auto 20px
+					color: rgba(255, 255, 255, 0.582)
+				.masterFlexBox
+					+flexBox(center,center,wrap)
+					flex-direction: column-reverse
+					color: #fff
+					&__text
+						text-align: center
+						// margin-right: 20px
+						width: 300px
+						&-display
+							display: block
+						&-link
+							display: block
+							color: #fff
+							border: 3px solid #fff
+							border-radius: 10px
+							padding: 8px 15px
+							max-width: 100px
+							text-align: center
+							margin: 20px auto
+						figure
+							+figure(100px)
+							margin: 20px auto 0
+						p
+							margin: 20px 0 
+						h3
+							margin-top: 20px
+					&__figure
+						+figure(100%)
+						margin: 0 auto
+			.othersSay
+				width: 100%
+				color: #fff
+				padding-top: 5%
+				&__h2 
+					font-size: 2em
+				&__flex
+					+flexBox(center,center,wrap)
+					.iconBox
+						width: 100%
+						text-align: center
+						margin: 30px
+						&__text
+							font-size: 1.5em
+							margin: 10px 0
+						&__figure
+							margin: 0 auto 30px
+							height: 200px
+							img
+								width: 100%
+								height: 100%
+								object-fit: contain
+						h3
+							margin-bottom: 20px
+
+	.PreOrder
+		width: 100%
+		background: linear-gradient(to bottom , #901ebc 10%, #000 80%)
+		padding: 0 5%
+		box-sizing: border-box
+		.PreOrderBox
+			width: 100%
+			color: #fff
+			padding-top: 5%
+			margin:  0 auto
+			&__h2
+				font-size: 3em
+				text-align: center
+				width: 60%
+				margin: 0 auto 20px
+			&__flex
+				+flexBox(center,center,nowrap)
+				.PreOrderIconBox
+					+flexBox(flex-start,center,nowrap)
+					flex-direction: column
+					color: rgba(255, 255, 255, 0.582)
+					width: 20%
+					text-align: center
+					margin: 10px
+					&__figure
+						margin: 0 auto 30px
+						height: 150px
+						img
+							width: 100%
+							height: 100%
+							object-fit: contain
+					h4
+						color: #fff
+						text-align: center
+						margin-bottom: 30px
+			&__box
+				width: 100%
+				margin: 0 auto
+				text-align: center
+				&-link
+					text-align: center
+					display: inline-block
+					color: #fff
+					border: 3px solid #fff
+					border-radius: 15px
+					padding: 10px 30px
+					margin: 20px auto
+			&__small
+				font-size: 0.8em
+				text-align: center
+				color: rgba(255, 255, 255, 0.582)
+		.vive
+			width: 100%
+			padding: 5% 0
+			text-align: center
+			margin: 0 auto
+			color: rgba(255, 255, 255, 0.582)
+			&__figure
+				margin: 0 auto
+				+figure(600px)
+			&__h2
+				font-size: 3em
+				color: #fff
+				margin-bottom: 10px
+			&__box
+				width: 100%
+				margin: 0 auto
+				text-align: center
+				&-link
+					text-align: center
+					display: inline-block
+					color: #fff
+					border: 3px solid #fff
+					border-radius: 15px
+					padding: 10px 30px
+					margin: 10px auto 20px
+			&__small
+				font-size: 0.8em
+				text-align: center
+				color: rgba(255, 255, 255, 0.582)
+
+		.videoBox
+			position: relative
+			padding: 3% 0
+			z-index: 100
+			&__wrap
+				width: 100%
+				margin: auto
+				max-width: 1600px
+				.video
+					width: 60%
+					margin: 0 auto
+					&__box
+						position: relative
+						width: 100%
+						padding-bottom: 56.25%
+						iframe
+							position: absolute
+							top: 0
+							left: 0
+							width: 100%
+							height: 100%
+		.swiperSliderBox
+			position: relative
+			width: 100%
+			padding: 50px 0
+			max-width: 1200px
+			margin: 0 auto
+			&__h2
+				font-size: 3em
+				text-align: center
+				color: #fff
+				margin: 20px 0
+			&__link
+				display: block
+				cursor: pointer
+				+figure(100%)
+			&__fixedArrow
+				position: relative
+				.button-next
+					.arrowLeft
+						cursor: pointer
+						+figure(30px)
+						position: absolute
+						z-index: 9999999
+						right: -1%
+						top: 50%
+						transform: translateY(-50%)
+				.button-prev
+					.arrowRight
+						cursor: pointer
+						+figure(30px)
+						position: absolute
+						z-index: 99999
+						left: -1%
+						top: 50%
+						transform: translateY(-50%)
+			.swiperCtrlStyle
+				.swiper-pagination-bullet-active
+					background: #fff
+
+	@media screen and ( max-width: 960px )
+		.PreOrder
+			width: 100%
+			padding: 0 5%
+			box-sizing: border-box
+			.PreOrderBox
+				width: 100%
+				color: #fff
+				padding-top: 5%
+				&__h2
+					width: 100% 
+					font-size: 2em
+				&__flex
+					+flexBox(center,center,wrap)
+					.PreOrderIconBox
+						width: 100%
+						text-align: center
+						margin: 30px
+						&__figure
+							margin: 0 auto 30px
+							height: 90%
+						&__text
+							font-size: 1.5em
+							margin: 10px 0
+						h4
+							color: #fff
+							text-align: center
+							margin-bottom: 10px
+			.vive
+				width: 100%
+				padding: 50px 0 
+				text-align: center
+				color: rgba(255, 255, 255, 0.582)
+				&__figure
+					+figure(100%)
+				&__h2
+					font-size: 2em
+			.videoBox
+				&__wrap
+					.video
+						width: 100%
+						margin: 0 auto
+			.swiperSliderBox
+				&__h2
+					font-size: 2em
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#lightcase-case
+	position: fixed
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	width: 100% !important
+	margin-left: 0 !important
+	margin-top: 0 !important
+	max-width: 900px !important
+	img
+		width: 100% !important
+	.lightcase-contentInner
+		line-height: 0 !important
+		height: auto !important
+		width: auto !important
+
+
+
+.show_deskTop
+	display: block
+.show_mobile
+	display: none
+@media screen and ( max-width: 960px )
+	.show_deskTop
+		display: none
+	.show_mobile
+		display: block
+
+
+
+

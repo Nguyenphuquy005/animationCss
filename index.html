@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- normalize -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- main css -->
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <!-- twentytwenty.css -->
+    <link rel="stylesheet" href="./css/twentytwenty.css" type="text/css" media="screen" />
+    <!-- swiper js -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!-- lightBox -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/lightcase/2.5.0/css/lightcase-no-breakpoint.css">
+
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+    <script src="./js/gsap3.6.1.js"></script>
+   <!-- fancybox -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+</head>
+
+<body>
+    <main class="main">
+        <nav class="navBar">
+            <div class="navBarBlock">
+                <a class="navBarBlock__logo">
+                    <img src="./images/Asset.png" alt="">
+                </a>
+                <div class="show_deskTop deskTopBtn">
+                    <a class="navBarBlock__btn navBarBlock__btn--active">Overview</a>
+                    <a class="navBarBlock__btn">Gallery</a>
+                    <a class="navBarBlock__btn">Downloads</a>
+                    <a class="navBarBlock__btn">Specs</a>
+                    <a class="navBarBlock__btn">Support</a>
+                </div>
+                <div class="show_mobile">
+                    <div class="hamburgerBar">
+                        <div class="hamburgerBar__box ">
+                            <div class="bar bar1 hamburgerBar__box-transition"></div>
+                            <div class="bar bar2 hamburgerBar__box-transition"></div>
+                            <div class="bar bar3 hamburgerBar__box-transition"></div>
+                        </div>
+                    </div>
+                    <div class="menu ">
+                        <div class="menu__box">
+                            <a class="menu__box-link" href="">Overview</a>
+                            <a class="menu__box-link" href="">Gallery</a>
+                            <a class="menu__box-link" href="">Downloads</a>
+                            <a class="menu__box-link" href="">Support</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="navBarBlock__alink">
+                    <div class="navBarBlock__alink-btn">Pre-Order Now</div>
+                </a>
+            </div>
+        </nav>
+
+        <!-- <section class="title">
+            <h1>MOTION 1</h1>
+            <p>A new dimension of Play</p>
+            <a href="" class="title__alink">
+                <div class="title__alink-btn">Pre-Order Now</div>
+            </a>
+        </section> -->
+
+        <!-- <section class="videoBox">
+            <section class="title">
+                <h1>MOTION 1</h1>
+                <p>A new dimension of Play</p>
+                <a href="" class="title__alink">
+                    <div class="title__alink-btn">Pre-Order Now</div>
+                </a>
+            </section> 
+            <video width="100%" class="videoBox__speac" autoplay>
+                <source src="./images/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section> -->
+
+        <section class="block video" id="cooler-video">
+            <div class="video__container">
+                <video id="true" autoplay="" muted="" playsinline="" loop="" type="video/mp4" src="./images/video-1.mp4" poster=""></video>
+            </div>
+            <div class="video__btn">
+                <h1>MOTION 1</h1>
+                <p>A new dimension of Play</p>
+                <!-- <a href="" class="titleLink">
+                    <div class="titleLink__btn">Pre-Order Now</div>
+                </a> -->
+                <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+                            <symbol id="icon-arrow" viewBox="0 0 120 120">
+                                <title>Play button</title>
+                                <path class="play-arrow"
+                                    d="M54.48 45.443L73.27 59.2a1 1 0 0 1 .01 1.606L54.49 74.929a1 1 0 0 1-1.6-.8V46.25a1 1 0 0 1 1.59-.806z" />
+                            </symbol>
+                        </svg>
+                <a class="fancybox" data-fancybox="" href="https://youtu.be/DoVjudxJkfE">
+                    <button type="button" class="btn btn--play">
+                            <svg class="icon">
+                                <use xlink:href="#icon-arrow"></use>
+                            </svg>
+                        </button>
+                </a>
+            </div>
+        </section>
+
+        <section class="chairGif">
+            <div class="gifTextBox">
+                <h2>
+                    Technology
+                    <div class="gifTextBox__block">
+                        That
+                    </div>
+                    Moves
+                </h2>
+                <p>Immerse yourself with Motion 1, the evolution of all chairs designed by Cooler Master in close
+                    collaboration with D-Box. </p>
+            </div>
+            <div class="chairGif__figure">
+                <img src="./images/D-BOX-purple.png" alt="">
+                <img class="chairGif__figure-absolute" src="./images/D-BOX-orange.png" alt="">
+                <img class="chairGif__figure-absolute" src="./images/D-BOX-cyan.png" alt="">
+            </div>
+        </section>
+
+        <section class="gasp-scroll">
+            <div class="videoPoint"></div>
+            <div id="videoBoxContainer">
+                <div class="video2BlockCtrl">
+                    <div class="animateVideoNew">
+                        <div class="animateVideoNew__position">
+                            <h2>Innovative By Design</h2>
+                            <p>Designed from the ground-up, Motion 1 brings a whole new identity to Cooler Master’s Setup centrepiece. <br><br>
+
+                                Driven by a unique partership with D-Box Motion Technolgy, Motion 1 redefines the archetype of the home setup in meaning of entertainment and experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <canvas class="aegisCanvas" id="hero-lightpass"> </canvas>
+            </div>
+        </section>
+
+        <section class="videoBox2">
+            <h2 class="videoBox2__h2">How it Works</h2>
+            <p class="videoBox2__p">The D-BOX Haptic Experience</p>
+            <p class="videoBox2__small">Read on to find out why the D-BOX Haptic Experience is at the cutting edge of
+                immersive technology and how it let’s you feel the game like never before.</p>
+            <video width="100%" class="videoBox__speac" autoplay>
+                <source src="./images/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <!-- Swiper img & text change -->
+        <!-- <section class="swiperTextImgBox">
+            <h2 class="swiperTextImgBox__h2">Sound meets Motion</h2>
+            <p class="swiperTextImgBox__p">Specialized D-BOX Haptic Engineers craft a unique game experience.</p> -->
+            <!-- <div class="swiper swiperText ">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide ">
+                        <figure class="swiperTextImgBox__figure">
+                            <img src="./images/textImg-1.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="swiper-slide">
+                        <figure class="swiperTextImgBox__figure">
+                            <img src="./images/textImg-2.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="swiper-slide">
+                        <figure class="swiperTextImgBox__figure">
+                            <img src="./images/textImg-3.png" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiperCtrlStyle"></div>
+                <p class="swiperTextImgBox__changeText">Each game or movie is individually encoded with our proprietary
+                    Motion Code and Systems.</p>
+            </div> -->
+
+          
+        </section>
+        <section class="gasp-scroll2">
+            <div class="videoPoint2"></div>
+            <div id="videoBoxContainer2">
+                <div class="video2BlockCtrl">
+                    <div class="animateVideoNew2">
+                        <div class="animateVideoNew2__position">
+                            <h2>Sound meets Motion</h2>
+                            <p>Specialized D-BOX Haptic Engineers craft a unique game experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <canvas class="aegisCanvas2" id="hero-lightpass2"> </canvas>
+            </div>
+        </section>
+
+
+        <!-- <section class="gasp-scroll2">
+            <div class="videoPoint2"></div>
+            <div id="videoBoxContainer2">
+                <canvas class="aegisCanvas" id="hero-lightpass2"> </canvas>
+            </div>
+        </section> -->
+
+
+        <section class="library">
+            <figure class="library__logo">
+                <img src="./images/d-box.png" alt="">
+            </figure>
+
+            <div class="library__figure">
+                <img src="./images/library.png" alt="">
+            </div>
+            <div class="libraryBox">
+                <h2>1000+ Games & Movies</h2>
+                <p>Create an account with D-BOX to get access to a a huge content library of movies and games. <a
+                        class="libraryBox__link" href="">Join D-BOX</a></p>
+            </div>
+        </section>
+
+        <section class="threeIcon">
+            <div class="threeIcon__flex">
+                <div class="iconBox">
+                    <figure class="iconBox__figure">
+                        <img src="./images/Icon1-immerse.png" alt="">
+                    </figure>
+                    <h3>Immersive</h3>
+                    <p>True and realistic haptic experience</p>
+                </div>
+                <div class="iconBox">
+                    <figure class="iconBox__figure">
+                        <img src="./images/Icon2-w&p.png" alt="">
+                    </figure>
+                    <h3>Work & Play</h3>
+                    <p>Designed to fit seemlessly</p>
+                </div>
+                <div class="iconBox">
+                    <figure class="iconBox__figure">
+                        <img src="./images/Icon3-ergo.png" alt="">
+                    </figure>
+                    <h3>Ergonomic Design</h3>
+                    <p>Comfortable and Iconic</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="omni">
+            <div class="omniBox">
+                <h2>
+                    Omni-level
+                    <div class="omniBox__block">
+                        Comfort
+                    </div>
+                </h2>
+                <p>Motion 1 introduces new levels of comfort beyond the typical mechanics, offering unique motion based
+                    relaxation modes* with 135 degrees of reclining, 3d molded foam and height adjustable lumbar
+                    support, headrest and armrests.
+
+                    *to be introduced with future software releases </p>
+            </div>
+            <div class="omni__figure">
+                <img src="./images/computex.jpg" alt="">
+            </div>
+        </section>
+
+        <section class="lightBox">
+
+        </section>
+
+
+        <div class="lightBox">
+            <h2 class="lightBox__h2">Ergonomics</h2>
+            <p class="lightBox__p">Motion 1’s magnetic headrest and lumbar support system allows for rapid adjustment and removal. The armrests feature soft and large padding with secure height adjustability. </p>
+
+            <div class="lightBox__fixedArrow">
+                <!-- <div class="button-next">
+                    <figure class="arrowLeft">
+                        <img src="./images/next.png" alt="">
+                    </figure>
+                </div>
+                <div class="button-prev">
+                    <figure class="arrowRight">
+                        <img src="./images/previous.png" alt="">
+                    </figure>
+                </div> -->
+
+                <div class="swiper swiperLight ">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide ">
+                            <a class="lightBox__link" data-rel="lightcase"  href="./images/lightBox-1.png">
+                                <img src="./images/lightBox-1.png" alt="">
+                                <div class="lightBox__link-absolute"><p class="color">Magnetic Lumbar Support</p></div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a class="lightBox__link" data-rel="lightcase" href="./images/lightBox-2.png">
+                                <img src="./images/lightBox-2.png" alt="">
+                                <div class="lightBox__link-absolute"><p class="color">Magnetic Lumbar Support</p></div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a class="lightBox__link" data-rel="lightcase" href="./images/lightBox-3.png">
+                                <img src="./images/lightBox-3.png" alt="">
+                                <div class="lightBox__link-absolute"><p class="color">Magnetic Lumbar Support</p></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination swiperCtrlStyle"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="work">
+            <div class="workBox">
+                <h2>Home At Work, Playful At Heart</h2>
+                <p>Equipped with the world’s first haptic engine optimized to fit a “Work & Play” chair and powered by
+                    the D-Box game and movie library, Motion 1 delivers the experience of 4D Cinema and Immersive
+                    gameplay right into the comfort of your room. </p>
+            </div>
+            <div class="work__figure">
+                <img src="./images/chair-2.jpg" alt="">
+            </div>
+        </section>
+
+        <section class="slider">
+            <div id="container1" class="slider__figure">
+                <!-- The before image is first -->
+                <img src="./images/slider1.jpg" />
+                <!-- The after image is last -->
+                <img src="./images/slider2.jpg" />
+            </div>
+        </section>
+
+        <section class="moveOver">
+            <div class="gamePad">
+                <figure class="gamePad__figure">
+                    <img src="./images/CMI_IO.png" alt="">
+                </figure>
+                <div class="gamePad__text">
+                    <h3>
+                        Move Over <br>GamePad Mode Is Here!
+                    </h3>
+                    <p>Motion 1 makes playing games with your favorite game pad a whole new experience. Sit back, start
+                        your game and immerse yourself away from your table. <br><br>
+                        Supporting most market leading controllers on the market, you’ll really feel your next jump on
+                        your adventure or the unavoidable fall to your demise! In any case you’ll wonder how you could
+                        ever get back to playing games without Motion 1.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="masterPlus">
+                <h2>MasterPlus Integration</h2>
+                <p class="masterPlus__text">Fully integrated with Cooler Master’s MasterPlus Software, Motion 1’s
+                    lighting can be fully customized and synchronized with all Cooler Master’s products.</p>
+                <div class="masterFlexBox">
+                    <div class="masterFlexBox__text">
+                        <figure>
+                            <img src="./images/200-200-masterplus-icon_1.png" alt="">
+                        </figure>
+                        <h3>D-Box MotionCore/ <div class="masterFlexBox__text-display">MasterPlus</div>
+                        </h3>
+                        <p>Setup Ligthing <br>
+                            Control D-Box Intensity <br>
+                            Launch D-Box Game Center
+                            <a class="masterFlexBox__text-link" href="">Download</a>
+                    </div>
+                    <figure class="masterFlexBox__figure">
+                        <img src="./images/MasterPlus Software_1.png" alt="">
+                    </figure>
+                </div>
+            </div>
+
+            <div class="othersSay">
+                <h2 class="othersSay__h2">What Others Say</h2>
+                <div class="othersSay__flex">
+                    <div class="iconBox">
+                        <figure class="iconBox__figure">
+                            <img src="./images/unbox.png" alt="">
+                        </figure>
+                        <div class="iconBox__textBox">
+                            <div class="iconBox__text">“</div>
+                            I can’t imagine myself on any other chair in the future!
+                            <div class="iconBox__text">”</div>
+                        </div>
+                    </div>
+                    <div class="iconBox">
+                        <figure class="iconBox__figure">
+                            <img src="./images/linus.png" alt="">
+                        </figure>
+                        <div class="iconBox__textBox">
+                            <div class="iconBox__text">“</div>
+                            The most exciting new product launch this year.
+                            <div class="iconBox__text">”</div>
+                        </div>
+                    </div>
+                    <div class="iconBox">
+                        <figure class="iconBox__figure">
+                            <img src="./images/toms.png" alt="">
+                        </figure>
+                        <div class="iconBox__textBox">
+                            <div class="iconBox__text">“</div>
+                            A technical marvel and great work and play chair.
+                            <div class="iconBox__text">”</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiperVideoBox">
+                <div class="swiper swipervideo ">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide ">
+                            <div class="swipervideo__videoBox">
+                                <video width="100%" autoplay controls loop>
+                                    <source src="./images/video.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="swipervideo__videoBox">
+                                <video width="100%" autoplay controls loop>
+                                    <source src="./images/video.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="swipervideo__videoBox">
+                                <video width="100%" autoplay controls loop>
+                                    <source src="./images/video.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination swiperCtrlStyle"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="PreOrder">
+            <div class="PreOrderBox">
+                <h2 class="PreOrderBox__h2">Pre-Order Now And Get Exclusive Perks!</h2>
+
+                <div class="PreOrderBox__flex">
+                    <div class="PreOrderIconBox">
+                        <figure class="PreOrderIconBox__figure">
+                            <img src="./images/image_1.png" alt="">
+                        </figure>
+                        <h4>6 Months Free Trial - D-BOX 6</h4>
+                        <p>Sign up for your D-Box account and receive a 6 months free trial period.</p>
+                    </div>
+                    <div class="PreOrderIconBox">
+                        <figure class="PreOrderIconBox__figure">
+                            <img src="./images/image_2.png" alt="">
+                        </figure>
+                        <h4>Assassin’s Creed Valhalla Game Code</h4>
+                        <p>Receive a free copy of Ubisoft’s latest Assassin’s Creed - Valhalla!</p>
+                    </div>
+                    <div class="PreOrderIconBox">
+                        <figure class="PreOrderIconBox__figure">
+                            <img src="./images/image_3.png" alt="">
+                        </figure>
+                        <h4>CM MH670 Wireless 7.1 Headset</h4>
+                        <p>Untangle your experience with a complimentary CM MH670 headset!</p>
+                    </div>
+                </div>
+
+                <div class="PreOrderBox__box">
+                    <a class="PreOrderBox__box-link" href="">Pre-Order Now</a>
+                </div>
+
+                <p class="PreOrderBox__small">*Pre-Order is available in certain countries. Please check availability by
+                    clicking on the Pre-Order button.</p>
+            </div>
+
+            <div class="vive">
+                <h2 class="vive__h2">HTC Vive Pre-Order Bundle!</h2>
+                <p class="vive__p">Receive all of the above and get your HTC Vive VR headset a life-changing experience.
+                </p>
+                <figure class="vive__figure">
+                    <img src="./images/Vive_1.png" alt="">
+                </figure>
+                <div class="vive__box">
+                    <a class="vive__box-link" href="">Pre-Order Now</a>
+                </div>
+
+                <p class="vive__small">*Pre-Order is available in certain countries. Please check availability by
+                    clicking on the Pre-Order button.</p>
+            </div>
+
+            <div class="videoBox ">
+                <div class="videoBox__wrap">
+                    <div class="video">
+                        <div class="video__box">
+                            <div id="vd1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Swiper Social Media-->
+            <div class="swiperSliderBox">
+                <h2 class="swiperSliderBox__h2">Our Community</h2>
+
+                <div class="swiperSliderBox__fixedArrow">
+                    <div class="button-next">
+                        <figure class="arrowLeft">
+                            <img src="./images/next.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="button-prev">
+                        <figure class="arrowRight">
+                            <img src="./images/previous.png" alt="">
+                        </figure>
+                    </div>
+
+                    <div class="swiper mySwiperSlider ">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide ">
+                                <a class="swiperSliderBox__link" target="_blank" href="#">
+                                    <img src="./images/Item-1.png" alt="">
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a class="swiperSliderBox__link" target="_blank" href="#">
+                                    <img src="./images/Item-2.png" alt="">
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a class="swiperSliderBox__link" target="_blank" href="#">
+                                    <img src="./images/Item-3.png" alt="">
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a class="swiperSliderBox__link" target="_blank" href="#">
+                                    <img src="./images/Item-4.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination swiperCtrlStyle"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+        <!-- <div style="width: 100%;height: 100vh;"></div> -->
+
+
+    </main>
+
+          <!--fancybox-->
+          <script src="./js/fancybox.js"
+          type="text/javascript "></script>
+    
+      <script type="text/javascript ">
+         $(document).ready(function() {
+             $(".fancybox").fancybox();
+         });
+     </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightcase/2.5.0/js/lightcase.min.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="./js/jquery.twentytwenty.js" type="text/javascript"></script>
+</body>
+
+</html>
